@@ -1,0 +1,160 @@
+<html>
+<head>
+<script src="jquery-3.3.1.min.js"></script> 
+<script>
+$(document).ready(function()
+{
+	$("input").focus(function()
+	{
+		$(this).css("background-color","yellow")
+		
+	});
+		$("input").blur(function()
+	{
+		$(this).css("background-color","white")
+	});
+
+});
+</script>
+
+<style>
+
+body {font-family: Arial;}
+form {border: 3px solid width="40%"}
+
+input[type=text], input[type=password], input[type=email], input[type=number], input[type=date], input[type=radiobutton],input[type=checkbox], input[type=textarea] {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 4px 0;
+    display:inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 5px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+}
+
+tr:hover
+{
+	background-color:gray;	
+	font-weight:bold;
+	color:white;
+	
+}
+
+	
+</style>
+<script>
+function validate()
+{
+	var upass = document.frmregister.password.value;
+	if(!isNaN(upass))
+	{
+		alert("Password can't contain only numbers");
+		return false;
+	}
+
+	if(confirm("Do you really want to Submit"))
+	{
+		return true;
+	}
+	return false;
+}
+
+function validateuname(uname)
+{
+	if(uname.length < 6)
+	{		//document.getElementById("errortxt").innerHTML = "Username must be more then 6 characters"
+		/*alert("Username must be more then 6 characters");
+		var name = prompt("Enter Valid Username");
+		document.frmregister.username.value = name;*/
+	}
+}
+
+function validateemail()
+{
+	var email = document.getElementById("email").value;
+	
+	if(
+	(email.indexOf('@') < 2)
+	||
+	(email.indexOf('@')!=email.lastIndexOf('@'))
+	)
+	{
+		alert("Invalid email");
+	}
+	
+}
+
+</script>
+
+
+
+
+</head>
+
+
+
+
+<div class="master">
+<head>
+<title>Registration Form</title>
+</head>
+<body background="fruit.jpg">
+
+<form action="framing.htm">
+
+ <center> <br/><label for="first_name"><b>First name</b></label>
+ <input type="text" id="first_name" placeholder="Enter first name" name="First_name"/>
+  <br/><label for="last_name"><b>Last name</b></label>
+ <input type="text" id="last_name" placeholder="Enter last_name" name="last_name"/>
+ 
+
+
+<div class="container">
+    <label for="username"><b>Username</b></label>&nbsp
+  
+<input class="container" required  autofocus autocomplete type="text" id="username" placeholder="Enter Username" maxlength="10" name="username" onblur="validateuname(this.value)"/>
+    <br/><label for="userpassword"><b>Password</b></label>&nbsp
+ <input type="password" id="userpassword" placeholder="Enter Password" name="password"/>
+    <br/><label for="email"><b>Email Id</b></label>&nbsp&nbsp&nbsp&nbsp
+<input type="email" id="email" placeholder="Enter Valid Email" onblur="validateemail()"/>
+
+   </br> <label for="mobile"><b>Mobile Num</b></label>
+<input type="number" id="mobile" placeholder="Enter Mobile Number "/>
+    <br/><label for="dob"><b>Date Of Birth</b></label>
+<input type="date" id="dob"/>
+    <br/><label for="uname"><b>Gender</b></label>
+<input  type="radio" id="rdogender" name="rdogender" checked> Male 
+<input type="radio" id="rdogender" name="rdogender"> Female 
+<input type="radio" id="rdogender" name="rdogender"> Transgender 
+
+   <br/><br/><label for="uname"><b>Country</b></label>
+<select  name="selcountry">
+<option selected> India </option>
+<option > Sweden </option>
+<option > Japan </option>
+<option> Korea </option>
+<option> United Kingdom </option>
+</select>
+  <br><label for="txaaddr"><b>Address</b></label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+ <textarea cols="30" rows="2" name="txaaddr" placeholder="Enter Address"></textarea>
+  </div>
+
+ <br/><button type="submit"> Register </button>
+ 
+<button type="reset"> Clear </button></center>
+ 
+ </form>
+ </div>
+ </body>
+ </html>

@@ -1,0 +1,222 @@
+
+<head>
+<script src="jquery-3.3.1.min.js"></script> 
+<script>
+$(document).ready(function()
+{
+	$("input").focus(function()
+	{
+		$(this).css("background-color","yellow")
+		
+	});
+		$("input").blur(function()
+	{
+		$(this).css("background-color","white")
+	});
+
+});
+</script>
+
+<style>
+
+
+
+button{
+background-color:#4CAF50;
+border-radius:6px;
+border-color:#4CAF50;
+color:red
+display:inline-block;
+}
+
+
+
+input
+{
+ border-radius : 6px;
+ }
+
+table{
+border=0;
+
+}
+<!--
+table
+{
+	border: 1px solid red
+}-->
+
+tr:hover
+{
+	background-color:gray;	
+	font-weight:bold;
+	color:white
+}
+
+
+th,td
+{
+	border-bottom : 0px solid blue;
+}
+input
+{
+		background-color:white;
+		color:black;
+}
+
+.myclass
+{
+	background-color:aqua;
+}
+</style>
+<script>
+function validate()
+{
+	var upass = document.frmregister.password.value;
+	if(!isNaN(upass))
+	{
+		alert("Password can't contain only numbers");
+		return false;
+	}
+
+	if(confirm("Do you really want to Submit"))
+	{
+		return true;
+	}
+	return false;
+}
+
+function validateuname(uname)
+{
+	if(isNaN(uname))
+		{		document.getElementById("errortxt").innerHTML = "First name cannot contain numbers";
+		alert("First name should not contain numbers");
+		var name = prompt("Enter Valid First name");
+		document.frmregister.firstname.value = name;
+	}
+}
+function validatelname(uname)
+{
+	if(isNaN(uname))
+	{		document.getElementById("errortxt").innerHTML = "First name cannot contain numbers" ;
+		alert("Last name should not contain numbers");
+		var nme = prompt("Enter Valid Last name");
+		document.frmregister.lastname.value = nme;
+	}
+}
+
+function validateemail()
+{
+	var email = document.getElementById("email").value;
+	
+	if(
+	(email.indexOf('@') < 2)
+	||
+	(email.indexOf('@')!=email.lastIndexOf('@'))
+	)
+	{
+		alert("Invalid email");
+	}
+	
+}
+
+</script>
+
+
+
+
+</head>
+<link rel="icon" type="image/x-icon" href="images.jpg"/>
+
+<form name="frmregister" 
+onsubmit="return validate()" action="register.htm">
+<table height="100%" width="35%" align="Center">
+<tr> 
+<th colspan="2" bgcolor="aqua"> User Registration </th>
+</tr>
+
+
+<tr>
+<td> 
+<label for="firstname" > First Name </label> 
+</td>
+<td>
+<input class="myclass" required  autofocus autocomplete type="text" id="firstname" placeholder="Enter First Name" maxlength="10" name="firstname" onblur="validateuname(this.value)"/>
+<div id="errortxt"></div>
+</td>
+</tr>
+
+<tr>
+<td> 
+<label for="lastname" > Last Name </label> 
+</td>
+<td>
+<input class="myclass" required type="text" id="lastname" placeholder="Enter Last Name" maxlength="10" name="lastname" onblur="validatelname(this.value)"/>
+<div id="errortxt"></div>
+</td>
+</tr>
+
+
+<tr>
+<td> 
+<label> Password </label> 
+</td>
+<td>
+<input type="password" id="userpassword" placeholder="Enter Password" name="password"/>
+</td>
+</tr>
+<tr>
+<td> 
+Email
+</td>
+<td>
+<input type="email" id="email" placeholder="Enter Valid Email" onblur="validateemail()"/>
+</td>
+</tr>
+<tr>
+<td> 
+Mobile
+</td>
+<td>
+<input type="number" id="mobile" placeholder="Enter Mobile Number "/>
+</td>
+</tr>
+<tr>
+<td nowrap> 
+Date of Birth
+</td>
+<td>
+<input type="date" id="dob"/>
+</td>
+</tr>
+<tr>
+<td> Gender </td>
+<td nowrap> 
+<input type="radio" id="rdogender" name="rdogender" checked> Male 
+<input type="radio" id="rdogender" name="rdogender"> Female 
+<input type="radio" id="rdogender" name="rdogender"> Transgender 
+</td>
+</tr>
+<tr> <td> Country </td>
+<td>
+<select name="selcountry">
+<option selected> India </option>
+<option > Sweden </option>
+<option > Japan </option>
+<option> Korea </option>
+<option> United Kingdom </option>
+</select>
+</td>
+</tr>
+</tr>
+<td> Address </td>
+<td> <textarea cols="30" rows="3" name="txaaddr" placeholder="Enter Address"></textarea>
+</td>
+</tr>
+<tr> 
+<td align="right"> <button type="submit"> Register </button> </td>
+<td> <button type="reset"> Clear </button> </td>
+</tr>
+</table>
+</form>
+
